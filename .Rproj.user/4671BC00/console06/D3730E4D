@@ -1,0 +1,195 @@
+]0;/home/anupam/Documents/binaca]0;anupam@anupam-Lenovo-Yoga-500-14IBD: ~/Documents/binaca[01;32manupam@anupam-Lenovo-Yoga-500-14IBD[00m:[01;34m~/Documents/binaca[00m$ sudo su
+[sudo] password for anupam: 
+]0;root@anupam-Lenovo-Yoga-500-14IBD: /home/anupam/Documents/binacaroot@anupam-Lenovo-Yoga-500-14IBD:/home/anupam/Documents/binaca# R
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> install.packages('tidytext')
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+xt  also installing the dependencies ‘SnowballC’, ‘ISOcodes’, ‘hunspell’, ‘tokenizers’, ‘janeaustenr’, ‘stopwords’
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/SnowballC_0.5.1.tar.gz'
+Content type 'application/x-gzip' length 3044522 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/ISOcodes_2017.09.27.tar.gz'
+Content type 'application/x-gzip' length 194253 bytes (189 KB)
+==================================================
+downloaded 189 KB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/hunspell_2.9.tar.gz'
+Content type 'application/x-gzip' length 3048967 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/tokenizers_0.1.4.tar.gz'
+Content type 'application/x-gzip' length 50453 bytes (49 KB)
+==================================================
+downloaded 49 KB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/janeaustenr_0.1.5.tar.gz'
+Content type 'application/x-gzip' length 1129950 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/stopwords_0.9.0.tar.gz'
+Content type 'application/x-gzip' length 103554 bytes (101 KB)
+==================================================
+downloaded 101 KB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/tidytext_0.1.6.tar.gz'
+Content type 'application/x-gzip' length 2888504 bytes (2.8 MB)
+==================================================
+downloaded 2.8 MB
+
+* installing *source* package ‘SnowballC’ ...
+** package ‘SnowballC’ successfully unpacked and MD5 sums checked
+** libs
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c api.c -o api.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c libstemmer_utf8.c -o libstemmer_utf8.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem.c -o stem.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_danish.c -o stem_UTF_8_danish.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_dutch.c -o stem_UTF_8_dutch.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_english.c -o stem_UTF_8_english.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_finnish.c -o stem_UTF_8_finnish.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_french.c -o stem_UTF_8_french.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_german.c -o stem_UTF_8_german.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_hungarian.c -o stem_UTF_8_hungarian.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_italian.c -o stem_UTF_8_italian.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_norwegian.c -o stem_UTF_8_norwegian.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_porter.c -o stem_UTF_8_porter.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_portuguese.c -o stem_UTF_8_portuguese.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_romanian.c -o stem_UTF_8_romanian.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_russian.c -o stem_UTF_8_russian.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_spanish.c -o stem_UTF_8_spanish.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_swedish.c -o stem_UTF_8_swedish.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c stem_UTF_8_turkish.c -o stem_UTF_8_turkish.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c utilities.c -o utilities.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o SnowballC.so api.o libstemmer_utf8.o stem.o stem_UTF_8_danish.o stem_UTF_8_dutch.o stem_UTF_8_english.o stem_UTF_8_finnish.o stem_UTF_8_french.o stem_UTF_8_german.o stem_UTF_8_hungarian.o stem_UTF_8_italian.o stem_UTF_8_norwegian.o stem_UTF_8_porter.o stem_UTF_8_portuguese.o stem_UTF_8_romanian.o stem_UTF_8_russian.o stem_UTF_8_spanish.o stem_UTF_8_swedish.o stem_UTF_8_turkish.o utilities.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/SnowballC/libs
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (SnowballC)
+* installing *source* package ‘ISOcodes’ ...
+** package ‘ISOcodes’ successfully unpacked and MD5 sums checked
+** data
+*** moving datasets to lazyload DB
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (ISOcodes)
+* installing *source* package ‘hunspell’ ...
+** package ‘hunspell’ successfully unpacked and MD5 sums checked
+** libs
+rm -f hunspell.so parsers/textparser.o parsers/latexparser.o parsers/manparser.o parsers/xmlparser.o parsers/htmlparser.o hunspell/affentry.o hunspell/affixmgr.o hunspell/filemgr.o hunspell/hashmgr.o hunspell/hunspell.o hunspell/hunzip.o hunspell/phonet.o hunspell/replist.o hunspell/suggestmgr.o hunspell/csutil.o RcppExports.o dictionary.o parser.o hunspell/libstathunspell.a
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c dictionary.cpp -o dictionary.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c parser.cpp -o parser.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c parsers/textparser.cc -o parsers/textparser.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c parsers/latexparser.cc -o parsers/latexparser.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c parsers/manparser.cc -o parsers/manparser.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c parsers/xmlparser.cc -o parsers/xmlparser.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c parsers/htmlparser.cc -o parsers/htmlparser.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/affentry.cc -o hunspell/affentry.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/affixmgr.cc -o hunspell/affixmgr.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/filemgr.cc -o hunspell/filemgr.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/hashmgr.cc -o hunspell/hashmgr.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/hunspell.cc -o hunspell/hunspell.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/hunzip.cc -o hunspell/hunzip.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/phonet.cc -o hunspell/phonet.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/replist.cc -o hunspell/replist.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/suggestmgr.cc -o hunspell/suggestmgr.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -Ihunspell -DBUILDING_LIBHUNSPELL -I"/usr/local/lib/R/site-library/Rcpp/include"   -fvisibility=hidden -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c hunspell/csutil.cc -o hunspell/csutil.o
+ar rcs hunspell/libstathunspell.a parsers/textparser.o parsers/latexparser.o parsers/manparser.o parsers/xmlparser.o parsers/htmlparser.o hunspell/affentry.o hunspell/affixmgr.o hunspell/filemgr.o hunspell/hashmgr.o hunspell/hunspell.o hunspell/hunzip.o hunspell/phonet.o hunspell/replist.o hunspell/suggestmgr.o hunspell/csutil.o
+g++ -std=gnu++11 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o hunspell.so RcppExports.o dictionary.o parser.o -Lhunspell -lstathunspell -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/hunspell/libs
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (hunspell)
+* installing *source* package ‘janeaustenr’ ...
+** package ‘janeaustenr’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (janeaustenr)
+* installing *source* package ‘tokenizers’ ...
+** package ‘tokenizers’ successfully unpacked and MD5 sums checked
+** libs
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c shingle_ngrams.cpp -o shingle_ngrams.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c skip_ngrams.cpp -o skip_ngrams.o
+g++ -std=gnu++11 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o tokenizers.so RcppExports.o shingle_ngrams.o skip_ngrams.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/tokenizers/libs
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (tokenizers)
+* installing *source* package ‘stopwords’ ...
+** package ‘stopwords’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (stopwords)
+* installing *source* package ‘tidytext’ ...
+** package ‘tidytext’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (tidytext)
+
+The downloaded source packages are in
+	‘/tmp/Rtmpus96EV/downloaded_packages’
+> 

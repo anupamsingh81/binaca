@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1517809739097.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "945123352",
+    "id" : "B9DD4A8B",
+    "lastKnownWriteTime" : 1503693254,
+    "last_content_update" : 1517809890165,
+    "path" : "~/Documents/binaca/binaca.R",
+    "project_path" : "binaca.R",
+    "properties" : {
+        "cursorPosition" : "58,32",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
