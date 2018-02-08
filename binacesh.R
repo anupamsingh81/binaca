@@ -181,6 +181,9 @@ eighties = list(g1984,g1985,g1986,g1987,g1988,g1989,g1990,g1991,g1992,g1993)
 
 eighty =bind_rows(eighties)
 
+
+### regex to clean columns
+
 ex = '\'john-dayal/tom s.janaki etc. ? (movies) \''
 ex
 pattern= "/"
@@ -255,4 +258,30 @@ eighty %>% mutate(lyricist= str_replace_all(lyricist," ","")) %>% select(lyricis
 
 
 
+##association music_director n singer
+songcol %>% select(year,singer,music_director) %>% unnest_tokens(word,singer) %>% rename(singer=word) %>% group_by(singer,music_director) %>% count(collaboration=n()) %>% arrange(desc(n)) %>% arrange(music_director) %>% View()
 
+#
+
+songcol %>% mutate(actors= str_replace_all(actors," ","")) %>% select(year,singer,actors) %>% unnest_tokens(word,singer) %>% rename(singer=word) %>%
+  unnest_tokens(word,actors) %>% rename(actor=word) %>% 
+  group_by(singer,actor) %>% count(collaboration=n()) %>% arrange(desc(n))  %>% View()
+
+
+songcol %>% filter(lyricist=="guljar")
+?str_detect
+
+patty = "[gG]ul[zg]ar" # gulzar or gulzar or guljar or Gulajar
+pattr= "[gG](.+)r" # will match starting with g (anything in between a) r , so gulzar,auhar,gulshan bawra etc
+
+pattri= "\\b[gG](.+)r\\b" #here word boundary specified independent word hence will match either gulzar or gauhar not in between sentences
+##\\b boundary word starts
+#[gG] g or G
+# (.+) any character 1 or more
+# r 
+# \\b word ends
+
+str_subset(songcol$lyricist,patty)
+
+songcol %>% filter(str_detect(lyricist,pattri)) %>% # using regex on filter 
+  select(song,lyricist,music_director,singer,rank,year,movie) %>% View()
