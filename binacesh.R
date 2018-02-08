@@ -285,3 +285,36 @@ str_subset(songcol$lyricist,patty)
 
 songcol %>% filter(str_detect(lyricist,pattri)) %>% # using regex on filter 
   select(song,lyricist,music_director,singer,rank,year,movie) %>% View()
+
+
+
+
+
+###### More scrapin 1994-2015
+g1994 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_1994") %>% 
+  html_node('table.MsoNormalTable') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(1994,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+
+g1995 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_1995") %>% 
+  html_node('table.MsoNormalTable') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(1995,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+
+g1996 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_1996") %>% 
+  html_node('table.MsoNormalTable') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(1996,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+
+
+g1998 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_1998") %>% 
+  html_node('table.MsoNormalTable') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(1998,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+g1999 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_1999") %>% 
+  html_node('table.MsoNormalTable') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(1999,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+g2000 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_2000") %>% 
+  html_node('table.MsoTableGrid') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(2000,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+
+g2015 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_2015") %>% 
+  html_node('table.MsoTableGrid') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(2015,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
+  rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
+
