@@ -192,4 +192,113 @@ installing to /usr/local/lib/R/site-library/tokenizers/libs
 
 The downloaded source packages are in
 	‘/tmp/Rtmpus96EV/downloaded_packages’
+[K]0;anupam@anupam-Lenovo-Yoga-500-14IBD: ~/Documents/binaca[01;32manupam@anupam-Lenovo-Yoga-500-14IBD[00m:[01;34m~/Documents/binaca[00m$ sudo su
+[sudo] password for anupam: 
+]0;root@anupam-Lenovo-Yoga-500-14IBD: /home/anupam/Documents/binacaroot@anupam-Lenovo-Yoga-500-14IBD:/home/anupam/Documents/binaca# R
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> install.packages('tidygraph')
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/tidygraph_1.0.0.tar.gz'
+Content type 'application/x-gzip' length 68410 bytes (66 KB)
+==================================================
+downloaded 66 KB
+
+* installing *source* package ‘tidygraph’ ...
+** package ‘tidygraph’ successfully unpacked and MD5 sums checked
+** libs
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c get_paths.cpp -o get_paths.o
+g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o tidygraph.so RcppExports.o get_paths.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/tidygraph/libs
+** R
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (tidygraph)
+
+The downloaded source packages are in
+	‘/tmp/RtmpQCoOwI/downloaded_packages’
+> inn[Kstall.packags[Kes('ggraph')
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘ggforce’
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/ggforce_0.1.1.tar.gz'
+Content type 'application/x-gzip' length 1489147 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+trying URL 'https://mirrors.nics.utk.edu/cran/src/contrib/ggraph_1.0.1.tar.gz'
+Content type 'application/x-gzip' length 2626849 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+* installing *source* package ‘ggforce’ ...
+** package ‘ggforce’ successfully unpacked and MD5 sums checked
+** libs
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c bSpline.cpp -o bSpline.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c bezier.cpp -o bezier.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c deBoor.cpp -o deBoor.o
+g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o ggforce.so RcppExports.o bSpline.o bezier.o deBoor.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/ggforce/libs
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (ggforce)
+* installing *source* package ‘ggraph’ ...
+** package ‘ggraph’ successfully unpacked and MD5 sums checked
+** libs
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c circlePack.cpp -o circlePack.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c iciclePlot.cpp -o iciclePlot.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c init.c -o init.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c lineCutter.cpp -o lineCutter.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c pathAttr.cpp -o pathAttr.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include"    -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c treemap.cpp -o treemap.o
+g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o ggraph.so RcppExports.o circlePack.o iciclePlot.o init.o lineCutter.o pathAttr.o treemap.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/ggraph/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (ggraph)
+
+The downloaded source packages are in
+	‘/tmp/RtmpQCoOwI/downloaded_packages’
 > 

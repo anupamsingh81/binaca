@@ -67,7 +67,7 @@ group_by(year) %>% count(word) %>% arrange(desc(n)) %>% arrange(year) %>% rename
 
 song_animate = songcol  %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% filter(word%in%topsing) %>% 
   group_by(year) %>% count(word) %>% arrange(desc(n)) %>% arrange(year) %>% rename(singer=word) %>% 
-  ggplot(aes(x=year,y=n,frame = year,cumulative=TRUE,color=singer,group=singer))+geom_line(size = 2.5)
+  ggplot(aes(x=year,y=n,frame = year,cumulative=TRUE,color=singer,group=singer))+geom_line(size=2.5)
 library(gganimate)
 gganimate(song_animate,ani.width = 800, ani.height = 500)
 
