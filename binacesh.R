@@ -52,6 +52,8 @@ str(songcol$singer)
 
 # So we see lata ,md.rafi,asha,mukesh,mahendra sang most popular songs
 
+
+songcol1 = full_join(songcol,eighty)
 # year wise
 
 songcol %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% group_by(year) %>% count(word) %>% arrange(desc(n)) %>% arrange(year) %>% View()
@@ -60,7 +62,13 @@ songcol %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% group_by
 
 # topsinger analysis by year multiple time series
 
-songcol  %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% filter(word%in%topsing) %>% 
+
+scol1 = songcol1 %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% count(word) %>% top_n(10) %>% arrange(desc(n))
+
+topsing = scol1$word # vector of top singers
+
+
+songcol1  %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% filter(word%in%topsing) %>% 
 group_by(year) %>% count(word) %>% arrange(desc(n)) %>% arrange(year) %>% rename(singer=word) %>% 
   ggplot(aes(x=year,y=n,color=singer,group=singer))+#geom_line() + # group=singer important
   stat_smooth(method = "loess", formula = y ~ x, size = 1,se=FALSE)
@@ -84,14 +92,22 @@ songcol %>% mutate(lyricist= str_replace_all(lyricist," ","")) %>% select(lyrici
 
 ####music_director
 
+library(tidyverse)
+library(tidytext)
 scol3 = songcol %>% mutate(music_director= str_replace_all(music_director," ","")) %>% select(music_director,rank,year) %>% unnest_tokens(word,music_director) %>% count(word) %>% top_n(5) %>% arrange(desc(n))
 
 topmusicd = scol3$word # vector of lyricist
 
-songcol %>% mutate(music_director= str_replace_all(music_director," ","")) %>% select(music_director,rank,year) %>% unnest_tokens(word,music_director)  %>% filter(word%in%topmusicd) %>% 
+jk9=songcol1 %>% mutate(music_director= str_replace_all(music_director," ","")) %>% select(music_director,rank,year) %>% unnest_tokens(word,music_director)  %>% filter(word%in%topmusicd) %>% 
   group_by(year) %>% count(word) %>% arrange(desc(n)) %>% arrange(year) %>% rename(music_director=word) %>% 
-  ggplot(aes(x=year,y=n,color=music_director,group=music_director))+#geom_line() + # group=singer important
-  stat_smooth(method = "loess", formula = y ~ x, size = 1,se=FALSE)
+  ggplot(aes(x=year,y=n,color=music_director,group=music_director))+ # geom_line() + # group=singer important
+  geom_point(aes(color=music_director)) +stat_smooth(method = "loess", formula = y ~ x, size = 1,se=FALSE)+
+  labs(x="year",y="number of songs in top binca geetmala yearly chart", 
+       title="Comparative trajectory of music directors",subtitle="SJ ruled 60s,RDB 70's,LP had extended reign")
+
+library(plotly)
+
+ggplotly(jk9)
 
 
 ###actors
@@ -118,6 +134,39 @@ songcol %>% filter(year>1970,year<1981) %>% mutate(actors= str_replace_all(actor
 # mean rank
 
 songcol %>% select(singer,rank,year) %>% unnest_tokens(word,singer) %>% group_by(word) %>% summarize (mean_rank=mean(rank))  %>% arrange() %>% View()
+
+songcol1$song=str_replace_all(songcol1$song,pattern="\\b[0-9].+","")
+
+library(tidytext)
+
+j5=songcol1 %>%mutate(songu=paste(song,"(",movie,")")) %>% 
+  select(songu,singer,rank,year) %>% unnest_tokens(word,singer) %>% group_by(word) %>% 
+ mutate(id= paste(rank,songu,sep=".")) %>% filter(word=="mohammedrafi") %>% ungroup() %>% 
+  select(-songu,-word,-rank) %>% 
+  group_by(year) %>% 
+  summarise(number=n(),songs=paste(id,collapse='\n')) %>% 
+  
+  ggplot(aes(x=year,y=number))+geom_point(aes(color=songs))+guides(color=FALSE)+
+  stat_smooth(se=FALSE)+labs(
+    x="year",y="number(with rank) of top songs in geetmala",title="The career of Mohammed Rafi in Binaca geetmala charts "
+  )
+
+library(plotly)
+ggplotly(j5,width=1850,height=800)
+
+?ggplotly
+
+j6=songcol1 %>% select(song,singer,rank,year) %>% unnest_tokens(word,singer) %>% group_by(word) %>% 
+  mutate(id= paste(rank,song,sep=".")) %>% filter(word=="latamangeshkar") %>% ungroup() %>% 
+  rename(singer=word) %>% 
+  select(-song,-rank) %>% 
+  group_by(year,singer) %>% 
+  summarise(number=n(),songs=paste(id,collapse='\n')) %>% 
+  
+  ggplot(aes(x=year,y=number,group=singer,color=songs))+geom_point(aes(color=songs))+geom_line()+guides(color=FALSE)
+
+
+ggplotly(j6,width=1800,height=900)
 
 
 ########
@@ -318,3 +367,7 @@ g2015 = read_html("http://indpaedia.com/ind/index.php/Hindi-Urdu_songs:_2015") %
   html_node('table.MsoTableGrid') %>% html_table() %>% slice(-1) %>% mutate(rank=1:length(X1),year=rep(2015,length(X1)))%>% select(-X1) %>% select(rank,X2,X6,X4,X5,X3,year) %>% 
   rename(song=X2,singer=X6,music_director=X4,lyricist=X5,movie=X3)
 
+##regex
+kka=songcol1$song
+kk= songcol1$song
+library(tidyverse)
